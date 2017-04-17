@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-gulp-ftp/gulp-ftp/index.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-gulp-ftp/node_modules/gulp-ftp/index.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-gulp-ftp">npmtest-gulp-ftp (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-gulp-ftp/gulp-ftp/index.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-gulp-ftp/node_modules/gulp-ftp/index.js</span></h1>
     <h2>
         
         Statements: <span class="metric">21.43% <small>(9 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> » <a href="index.html">node-npmtest-gulp-ftp/gulp-ftp/</a> » index.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-gulp-ftp/node_modules/gulp-ftp/</a> &#187; index.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -365,72 +367,71 @@ var plur = require('plur');
 &nbsp;
 JSFtp = require('jsftp-mkdirp')(JSFtp);
 &nbsp;
-module.exports = <span class="fstat-no" title="function not covered">function (options) {</span>
-<span class="cstat-no" title="statement not covered">	options = assign({}, options);</span>
-<span class="cstat-no" title="statement not covered">	options.verbose = process.argv.indexOf('--verbose') !== -1;</span>
+module.exports = <span class="fstat-no" title="function not covered" >function (options) {</span>
+<span class="cstat-no" title="statement not covered" >	options = assign({}, options);</span>
+<span class="cstat-no" title="statement not covered" >	options.verbose = process.argv.indexOf('--verbose') !== -1;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">	if (options.host === undefined) {</span>
-<span class="cstat-no" title="statement not covered">		throw new gutil.PluginError('gulp-ftp', '`host` required');</span>
+<span class="cstat-no" title="statement not covered" >	if (options.host === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >		throw new gutil.PluginError('gulp-ftp', '`host` required');</span>
 	}
 &nbsp;
-<span class="cstat-no" title="statement not covered">	var fileCount = 0;</span>
-<span class="cstat-no" title="statement not covered">	var remotePath = options.remotePath || '';</span>
-<span class="cstat-no" title="statement not covered">	delete options.remotePath;</span>
+<span class="cstat-no" title="statement not covered" >	var fileCount = 0;</span>
+<span class="cstat-no" title="statement not covered" >	var remotePath = options.remotePath || '';</span>
+<span class="cstat-no" title="statement not covered" >	delete options.remotePath;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">	return through.obj(<span class="fstat-no" title="function not covered">function (file, enc, cb) {</span></span>
-<span class="cstat-no" title="statement not covered">		if (file.isNull()) {</span>
-<span class="cstat-no" title="statement not covered">			cb(null, file);</span>
-<span class="cstat-no" title="statement not covered">			return;</span>
+<span class="cstat-no" title="statement not covered" >	return through.obj(<span class="fstat-no" title="function not covered" >function (file, enc, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >		if (file.isNull()) {</span>
+<span class="cstat-no" title="statement not covered" >			cb(null, file);</span>
+<span class="cstat-no" title="statement not covered" >			return;</span>
 		}
 &nbsp;
-<span class="cstat-no" title="statement not covered">		if (file.isStream()) {</span>
-<span class="cstat-no" title="statement not covered">			cb(new gutil.PluginError('gulp-ftp', 'Streaming not supported'));</span>
-<span class="cstat-no" title="statement not covered">			return;</span>
+<span class="cstat-no" title="statement not covered" >		if (file.isStream()) {</span>
+<span class="cstat-no" title="statement not covered" >			cb(new gutil.PluginError('gulp-ftp', 'Streaming not supported'));</span>
+<span class="cstat-no" title="statement not covered" >			return;</span>
 		}
 &nbsp;
 		// have to create a new connection for each file otherwise they conflict
-<span class="cstat-no" title="statement not covered">		var ftp = new JSFtp(options);</span>
+<span class="cstat-no" title="statement not covered" >		var ftp = new JSFtp(options);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">		var finalRemotePath = path.join('/', remotePath, file.relative).replace(/\\/g, '/');</span>
+<span class="cstat-no" title="statement not covered" >		var finalRemotePath = path.join('/', remotePath, file.relative).replace(/\\/g, '/');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">		ftp.mkdirp(path.dirname(finalRemotePath).replace(/\\/g, '/'), <span class="fstat-no" title="function not covered">function (err) {</span></span>
-<span class="cstat-no" title="statement not covered">			if (err) {</span>
-<span class="cstat-no" title="statement not covered">				cb(new gutil.PluginError('gulp-ftp', err, {fileName: file.path}));</span>
-<span class="cstat-no" title="statement not covered">				return;</span>
+<span class="cstat-no" title="statement not covered" >		ftp.mkdirp(path.dirname(finalRemotePath).replace(/\\/g, '/'), <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >			if (err) {</span>
+<span class="cstat-no" title="statement not covered" >				cb(new gutil.PluginError('gulp-ftp', err, {fileName: file.path}));</span>
+<span class="cstat-no" title="statement not covered" >				return;</span>
 			}
 &nbsp;
-<span class="cstat-no" title="statement not covered">			ftp.put(file.contents, finalRemotePath, <span class="fstat-no" title="function not covered">function (err) {</span></span>
-<span class="cstat-no" title="statement not covered">				if (err) {</span>
-<span class="cstat-no" title="statement not covered">					cb(new gutil.PluginError('gulp-ftp', err, {fileName: file.path}));</span>
-<span class="cstat-no" title="statement not covered">					return;</span>
+<span class="cstat-no" title="statement not covered" >			ftp.put(file.contents, finalRemotePath, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >				if (err) {</span>
+<span class="cstat-no" title="statement not covered" >					cb(new gutil.PluginError('gulp-ftp', err, {fileName: file.path}));</span>
+<span class="cstat-no" title="statement not covered" >					return;</span>
 				}
 &nbsp;
-<span class="cstat-no" title="statement not covered">				fileCount++;</span>
-<span class="cstat-no" title="statement not covered">				ftp.raw.quit();</span>
-<span class="cstat-no" title="statement not covered">				cb(null, file);</span>
+<span class="cstat-no" title="statement not covered" >				fileCount++;</span>
+<span class="cstat-no" title="statement not covered" >				ftp.raw.quit();</span>
+<span class="cstat-no" title="statement not covered" >				cb(null, file);</span>
 			});
 		});
 &nbsp;
-<span class="cstat-no" title="statement not covered">		if (options.verbose) {</span>
-<span class="cstat-no" title="statement not covered">			gutil.log('gulp-ftp:', chalk.green('✔ ') + file.relative);</span>
+<span class="cstat-no" title="statement not covered" >		if (options.verbose) {</span>
+<span class="cstat-no" title="statement not covered" >			gutil.log('gulp-ftp:', chalk.green('✔ ') + file.relative);</span>
 		}
-	}, <span class="fstat-no" title="function not covered">function (cb) {</span>
-<span class="cstat-no" title="statement not covered">		if (fileCount &gt; 0) {</span>
-<span class="cstat-no" title="statement not covered">			gutil.log('gulp-ftp:', gutil.colors.green(fileCount, plur('file', fileCount), 'uploaded successfully'));</span>
+	}, <span class="fstat-no" title="function not covered" >function (cb) {</span>
+<span class="cstat-no" title="statement not covered" >		if (fileCount &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >			gutil.log('gulp-ftp:', gutil.colors.green(fileCount, plur('file', fileCount), 'uploaded successfully'));</span>
 		} else {
-<span class="cstat-no" title="statement not covered">			gutil.log('gulp-ftp:', gutil.colors.yellow('No files uploaded'));</span>
+<span class="cstat-no" title="statement not covered" >			gutil.log('gulp-ftp:', gutil.colors.yellow('No files uploaded'));</span>
 		}
 &nbsp;
-<span class="cstat-no" title="statement not covered">		cb();</span>
+<span class="cstat-no" title="statement not covered" >		cb();</span>
 	});
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 16:11:58 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 20:48:11 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
